@@ -12,8 +12,14 @@ open_search:
 s3:
   name: nm3223.voice-photo-album.b2.w6998.ccbd.f2021
   arn: arn:aws:s3:::nm3223.voice-photo-album.b2.w6998.ccbd.f2021
+  metadata:
+    user_defined:
+      name: x-amz-meta-customLabels
   event:
-    name: lambdafunction1-indexphotos-trigger
+    -
+      name: lambdafunction1-indexphotos-trigger
+    -
+      name: nm3223-hw2-rekognition-event
 lambda:
   -
     name: nm3223-hw2-lambdafunction1-indexphotos
