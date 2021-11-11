@@ -1,0 +1,4 @@
+message:
+  id: string
+  text: string
+  timestamp: str

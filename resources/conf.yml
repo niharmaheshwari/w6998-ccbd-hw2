@@ -1,0 +1,45 @@
+open_search:
+  master_user: arn:aws:iam::858031629516:user/niharmaheshwari
+  network: public_access
+  instance_type: t3_small
+  dedicated_master: false
+  domain: 
+    name: nm3223-hw2-photos
+    arn: arn:aws:es:us-east-1:858031629516:domain/nm3223-hw2-photos
+    uri_base: search-nm3223-hw2-photos-htltzo3ajr7twpke37rnijfzkm
+    region: us-east-1
+  version:
+    type: elastic_search
+    version: 7.10
+s3:
+  name: nm3223.voice-photo-album.b2.w6998.ccbd.f2021
+  arn: arn:aws:s3:::nm3223.voice-photo-album.b2.w6998.ccbd.f2021
+  metadata:
+    user_defined:
+      name: x-amz-meta-customLabels
+  event:
+    -
+      name: lambdafunction1-indexphotos-trigger
+    -
+      name: nm3223-hw2-rekognition-event
+lambda:
+  -
+    name: nm3223-hw2-lambdafunction1-indexphotos
+    runtime: python v3.8
+    arn: arn:aws:lambda:us-east-1:858031629516:function:nm3223-hw2-lambdafunction1-indexphotos
+    execution_role: nm3223-hw2-lambdafunction1-indexphotos-role-6nnzqkrg
+  -
+    name: nm3223-hw2-lambdafunction2-searchphotos
+    runtime: python v3.7
+    arn: arn:aws:iam::858031629516:function:nm3223-hw2-lambdafunction2-searchphotos-role-6tmhd8m3
+    execution_role: nm3223-hw2-lambdafunction2-searchphotos-role-6tmhd8m3
+lex:
+  bot_name: PhotoSearchQueries
+  alias: photoSearchBot
+  iam_role: AWSServiceRoleForLexBots
+  intents:
+    -
+      name: SearchIntent
+
+
+
