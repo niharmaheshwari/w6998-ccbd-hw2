@@ -4,6 +4,7 @@ phases:
     commands:
       - echo "Starting the build .."
       - aws cloudformation package --template-file formation-spec.yml --s3-bucket nm3223.build-archive --output-template-file output-template.yml
+      - aws cloudformation package --template-file ui-spec.yml --s3-bucket nm3223.ui.b1.w6998.ccbd.f2021 --output-template-file output-template.yml
       - echo "Artifact Build Complete .."
 artificats:
   type: zip
