@@ -68,6 +68,7 @@ def lambda_handler(event, context):
     lex_runtime = boto3.client('lex-runtime')
 
     # Get latest user messages
+    logging.info('Event : {}'.format(str(event)))
     msg = event["queryStringParameters"]['q']
 
     # Set the guest user
@@ -114,5 +115,10 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
+        'headers': {
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
         'body': el_resp.text
     }

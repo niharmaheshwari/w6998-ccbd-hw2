@@ -1,0 +1,10 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - aws cloudformation package --templatefile formation-template.yml --s3-bucket lambdapipeline-bucket1 --output-template-file outputTemplate.yml
+artificats:
+  type: zip
+  files:
+    - formation-template.yml
+    - outputTemplate.yml

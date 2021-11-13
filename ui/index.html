@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Smart Photo Album</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+    <link rel="stylesheet" href="google_style.css">
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="render.js"></script>
+    <script src="apigClient.js"></script>
+</head>
+
+<body>
+    <div class="container input-group col-sm-7 input-group-lg">
+        <div class="input-group-prepend"> <span class="input-group-text google"><img src="https://img.icons8.com/fluency/75/000000/photos.png"></span> </div>
+        <input type="text" class="form-control" name="search" id="note-textarea" placeholder="Type or Speak something ..">
+        <button class="input-group-append btn btn-default" style="margin-top: 10px !important;" type="submit" onclick="searchPhoto()"> <i class="fa fa-search"></i>
+        <button class="input-group-append btn btn-default" style="margin-top: 10px !important;" id="start-record-btn" onclick="startRecording()"><i class="fa fa-microphone"></i>
+        <!-- <button class="input-group-append btn btn-default" style="margin-top: 10px !important;" id="pause-record-btn" onclick="stopRecording()"><i class="fa fa-microphone-slash"></i> -->
+    </div>
+    <div id="image_area" class= "window">
+        <div id="gallery_showcase">
+        </div>
+    </div>
+    <div id="upload_center">
+        <hr />
+        <label class="input-group col-sm-7 " style="font-family: monospace; padding-bottom: 0px !important;">Upload Center</label>
+        <div class="container input-group col-sm-7 input-group-lg" style="padding-top: 0px !important;">
+            <label id="fileLabel" class="input-group-prepend">
+                <input type="file" class="form-control upload input-group-prepend" id="file_path" onchange="showFile(this)">
+                <img src="https://img.icons8.com/ios/45/000000/upload--v1.png">
+            </label>
+            <input type="text" class="form-control" id="uploadText" placeholder="tags ..">
+            <button class="input-group-append btn btn-default" style="margin-top: 10px !important;" type="submit" onclick="uploadPhoto()"> <i class="fa fa-upload"></i>
+        </div>
+        <label class="input-group" id="fileName"></label>
+    </div>
+</body>
+</html>
