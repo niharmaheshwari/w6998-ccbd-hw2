@@ -6,10 +6,10 @@ Resources:
     Properties:
       Handler: nm3223-hw2-lambdafunction1-indexphotos.lambda_handler
       Runtime: python3.7
-      CodeUri: ./lambdas/
+      CodeUri: ./lambda/lf1/
   LF2Function:
     Type: AWS::Serverless::Function
     Properties:
       Handler: nm3223-hw2-lambdafunction2-searchphotos.lambda_handler
       Runtime: python3.7
-      CodeUri: ./lambdas/
+      CodeUri: ./lambda/lf2/
