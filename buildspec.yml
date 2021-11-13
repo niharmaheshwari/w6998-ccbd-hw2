@@ -3,7 +3,8 @@ phases:
   install:
     commands:
       - echo "Starting the build .."
-      - aws cloudformation package --template-file formation-spec.yml --s3-bucket nm3223.build-archive --output-template-file output-template.yml
+      - aws cloudformation package --template-file formation-spec.json --s3-bucket codepipeline-us-east-1-artifact-bucket --output-template-file output-template.yml
+      - echo "Artifact Build Complete .."
 artificats:
   type: zip
   name: build
