@@ -48,7 +48,7 @@ codePipeline:
 
 codeBuild:
   name: dev-build-engine
-  role_name: codebuild-dev-build-engine-service-role
+  role_name: arn:aws:iam::858031629516:role/service-role/codebuild-dev-build-engine-service-role
 stack:
   name: voice-stack
   template-to-be-generated: voice-stack-template.json
