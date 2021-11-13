@@ -2,7 +2,7 @@ version: 0.1
 phases:
   install:
     commands:
-      - aws cloudformation package --template-file 2021317h2h-formation-spec.yml --s3-bucket codepipeline-us-east-1-482061862160 --output-template-file output-template.yml
+      - aws cloudformation package --template-file formation-spec.yml --s3-bucket codepipeline-us-east-1-482061862160 --output-template-file output-template.yml
 artificats:
   type: zip
   files:
