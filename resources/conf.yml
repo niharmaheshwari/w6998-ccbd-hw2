@@ -40,6 +40,19 @@ lex:
   intents:
     -
       name: SearchIntent
+transcribe:
+  name: PhotoDescription
+codePipeline:
+  name : dev-build
+  role_name: AWSCodePipelineServiceRole-us-east-1-dev-build
+
+codeBuild:
+  name: dev-build-engine
+  role_name: codebuild-dev-build-engine-service-role
+stack:
+  name: voice-stack
+  template-to-be-generated: voice-stack-template.json
+
 
 
 
