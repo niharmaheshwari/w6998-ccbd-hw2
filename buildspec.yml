@@ -4,11 +4,7 @@ phases:
     commands:
       - echo "Starting the build .."
       - aws cloudformation package --template-file formation-spec.json --s3-bucket nm3223.build-archive --output-template-file output-template.yml
-      - aws cloudformation deploy --template-file /codebuild/output/src003598474/src/output-template.yml --stack-name voice-stack
       - echo "Artifact Build Complete .."
 artificats:
-  type: zip
-  name: build
   files:
-    - ui/*
-    - lambda/*
+    - output-template.yml
