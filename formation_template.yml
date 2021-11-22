@@ -26,3 +26,9 @@ Resources:
       Handler: lambda_handler
       Role: arn:aws:iam::858031629516:role/service-role/nm3223-hw2-lambdafunction2-searchphotos-role-6tmhd8m3
       Runtime: python3.7
+  ESInstance:
+    Type: AWS::Elasticsearch::Domain
+    Properties:
+      DomainName: functional-elastic-search-index-photos
+      ElasticsearchClusterConfig:
+        InstanceType: t3.small.search
