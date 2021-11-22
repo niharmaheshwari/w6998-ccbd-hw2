@@ -9,8 +9,8 @@ Resources:
       Architectures:
         - x86_64
       Code:
-        S3Bucket: codepipeline-us-east-1-482061862160
-        S3Key: dev-build/SourceArti/3fLWNE6.zip
+        S3Bucket: nm3223.build-archive
+        S3Key: current_build/lf_1.zip
       Description: Index Photos Lambda [CP]
       FunctionName: nm3223-hw2-lambdafunction1-cp-indexphotos
       Handler: lambda_handler
@@ -22,8 +22,8 @@ Resources:
       Architectures:
         - x86_64
       Code:
-        S3Bucket: codepipeline-us-east-1-482061862160
-        S3Key: dev-build/SourceArti/3fLWNE6.zip
+        S3Bucket: nm3223.build-archive
+        S3Key: current_build/lf_2.zip
       Description: Search Photos Lambda [CP]
       FunctionName: nm3223-hw2-lambdafunction2-cp-searchphotos
       Handler: lambda_handler
