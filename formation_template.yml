@@ -32,3 +32,7 @@ Resources:
       DomainName: cp-index-photos
       ElasticsearchClusterConfig:
         InstanceType: m3.medium.elasticsearch
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: cp-index-photos
