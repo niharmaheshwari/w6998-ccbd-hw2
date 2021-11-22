@@ -1,14 +1,38 @@
 version: 0.1
 phases:
-  install:
+  build:
     commands:
-      - echo "Starting the build ..."
-      - aws cloudformation package --template-file formation-spec.yml --s3-bucket nm3223.build-archive --output-template-file output-template.yml
-      - aws cloudformation package --template-file ui-spec.yml --s3-bucket nm3223.ui.b1.w6998.ccbd.f2021 --output-template-file ui-output-template.yml
-      - echo "Artifact Build Complete .."
+      - echo Command - `date` Starting the build
+  post_build:
+    commands:
+      - mkdir lf_1
+      - cp -R lambda/lf1 lf_1
+      - cd lf_1/
+      - zip -qr lf_1.zip ./*
+      - mv lf_1.zip ../
+      - cd ../
+      - mkdir lf_2
+      - cp -R lambda/lf2 lf_2
+      - cd lf_2/
+      - zip -qr lf_2.zip ./*
+      - mv lf_2.zip ../
+      - cd ../
+      - mkdir ui
+      - cp -rv apiGateway-js-sdk ui/
+      - cp -rv lib ui/
+      - cp apigClient.js ui/
+      - cp google_style.css ui/
+      - cp index.html ui/
+      - cp style1.css ui/
+      - cp script.js ui/
+      - cp render.js ui/
+      - cd ui/
+      - zip -qr ui.zip ./*
+      - mv ui.zip ../
+      - cd ../
+      - echo Command - `date` Build Complete
 artificats:
-  type: zip
   files:
-    - output-template.yml
-    - ui-output-template.yml
     - ui.zip
+    - lf_1.zip
+    - lf_2.zip
