@@ -31,4 +31,4 @@ Resources:
     Properties:
       DomainName: cp-index-photos
       ElasticsearchClusterConfig:
-        InstanceType: t3.small.elasticsearch
+        InstanceType: m3.medium.elasticsearch
