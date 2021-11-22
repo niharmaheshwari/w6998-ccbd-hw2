@@ -8,7 +8,7 @@ from dateutil.parser import parse
 import datetime
 from requests_aws4auth import AWS4Auth
 
-# First Lambda Function - One
+# First Lambda Function
 
 # ES Lookup Configuration
 ES_NAME = 'search-nm3223-hw2-photos-htltzo3ajr7twpke37rnijfzkm'
