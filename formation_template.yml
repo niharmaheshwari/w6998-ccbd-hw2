@@ -29,6 +29,6 @@ Resources:
   ESInstance:
     Type: AWS::Elasticsearch::Domain
     Properties:
-      DomainName: functional-elastic-search-index-photos
+      DomainName: cp-index-photos
       ElasticsearchClusterConfig:
         InstanceType: t3.small.search
