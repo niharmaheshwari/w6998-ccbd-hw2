@@ -36,3 +36,28 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: cp-index-photos
+  PhotoGateway":
+      Type: AWS::ApiGateway::Deployment
+      Properties:
+        RestApiId:
+          Ref: ServerlessRestApi
+        Description: RestApi deployment
+        StageName: Stage
+  ServerlessRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Body:
+          info:
+            version: 1.0
+            title:
+              Ref: AWS::StackName
+          paths:
+            /search-photos:
+              get:
+                x-amazon-apigateway-integration:
+                  httpMethod: POST
+                  type: aws_proxy
+                  uri:
+                    Fn::Sub: arn:aws:iam::858031629516:role/service-role/nm3223-hw2-lambdafunction1-indexphotos-role-6nnzqkrg
+                responses:
+          swagger: 2.0
