@@ -35,8 +35,8 @@ phases:
       - aws s3 cp ./lf_1.zip s3://nm3223.build-archive/current_build/lf_1.zip
       - aws s3 cp ./lf_2.zip s3://nm3223.build-archive/current_build/lf_2.zip
       - aws s3 cp ./ui.zip s3://nm3223.build-archive/current_build/ui.zip
+      - aws cloudformation package --template-file formation_template.yaml --s3-bucket cf-templates-1rsjxtxu6ti7f-us-east-1 --output-template-file output_formation_template.yml
 artificats:
   files:
-    - ui.zip
-    - lf_1.zip
-    - lf_2.zip
+    - formation_template.yml
+    - output_formation_template.yml
