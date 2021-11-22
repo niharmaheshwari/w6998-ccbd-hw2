@@ -36,7 +36,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: cp-index-photos
-  PhotoGateway":
+  PhotoGateway:
       Type: AWS::ApiGateway::Deployment
       Properties:
         RestApiId:
@@ -59,5 +59,4 @@ Resources:
                   type: aws_proxy
                   uri:
                     Fn::Sub: arn:aws:iam::858031629516:role/service-role/nm3223-hw2-lambdafunction1-indexphotos-role-6nnzqkrg
-                responses:
           swagger: 2.0
