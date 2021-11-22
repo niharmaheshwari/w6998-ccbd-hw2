@@ -58,5 +58,5 @@ Resources:
                   httpMethod: POST
                   type: aws_proxy
                   uri:
-                    Fn::Sub: arn:aws:iam::858031629516:role/service-role/nm3223-hw2-lambdafunction1-indexphotos-role-6nnzqkrg
+                    Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LF2Function.Arn}/invocations
           swagger: 2.0
