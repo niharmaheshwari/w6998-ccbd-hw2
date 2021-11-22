@@ -2,28 +2,25 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: >
   This is the formation template
   for Lambda / UI and Elastic
+Transform: 'AWS::Serverless-2016-10-31'
 Resources:
   LF1Function:
-    Type: AWS::Lambda::Function
+    Type: AWS::Serverless::Function
     Properties:
       Architectures:
         - x86_64
-      Code:
-        S3Bucket: nm3223.build-archive
-        S3Key: current_build/lf_1.zip
+      CodeUri: ./lambda/lf1
       Description: Index Photos Lambda [CP]
       FunctionName: nm3223-hw2-lambdafunction1-cp-indexphotos
       Handler: lambda_handler
       Role: arn:aws:iam::858031629516:role/service-role/nm3223-hw2-lambdafunction1-indexphotos-role-6nnzqkrg
       Runtime: python3.7
   LF2Function:
-    Type: AWS::Lambda::Function
+    Type: AWS::Serverless::Function
     Properties:
       Architectures:
         - x86_64
-      Code:
-        S3Bucket: nm3223.build-archive
-        S3Key: current_build/lf_2.zip
+      CodeUri: ./lambda/lf2
       Description: Search Photos Lambda [CP]
       FunctionName: nm3223-hw2-lambdafunction2-cp-searchphotos
       Handler: lambda_handler
