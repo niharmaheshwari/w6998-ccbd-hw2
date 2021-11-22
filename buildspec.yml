@@ -40,4 +40,3 @@ artifacts:
   type: zip
   files:
     - output_formation_template.yml
-    - formation_template.yml
