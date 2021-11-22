@@ -6,13 +6,13 @@ phases:
   post_build:
     commands:
       - mkdir lf_1
-      - cp -R lambda/lf1 lf_1
+      - cp -R lambda/lf1 lf_1/
       - cd lf_1/
       - zip -qr lf_1.zip ./*
       - mv lf_1.zip ../
       - cd ../
       - mkdir lf_2
-      - cp -R lambda/lf2 lf_2
+      - cp -R lambda/lf2 lf_2/
       - cd lf_2/
       - zip -qr lf_2.zip ./*
       - mv lf_2.zip ../
@@ -31,9 +31,9 @@ phases:
       - mv ui.zip ../
       - cd ../
       - echo Command - `date` Build Complete
-      - aws s3 cp lf_1.zip s3://nm3223.build-archive/current_build/lf_1.zip
-      - aws s3 cp lf_2.zip s3://nm3223.build-archive/current_build/lf_2.zip
-      - aws s3 cp ui.zip s3://nm3223.build-archive/current_build/ui.zip
+      - aws s3 cp ./lf_1.zip s3://nm3223.build-archive/current_build/lf_1.zip
+      - aws s3 cp ./lf_2.zip s3://nm3223.build-archive/current_build/lf_2.zip
+      - aws s3 cp ./ui.zip s3://nm3223.build-archive/current_build/ui.zip
 artificats:
   files:
     - ui.zip
